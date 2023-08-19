@@ -11,6 +11,7 @@ type THelper = (
 
 export interface UseTranslation {
   isLoading: boolean;
+  locale: string;
   setLocale: (language: string) => void;
   t: THelper;
 }
@@ -21,6 +22,7 @@ export const useTranslation = (): UseTranslation => {
 
   return {
     isLoading,
+    locale,
     setLocale,
     t: (key, params = {}, options) =>
       translate(translations, locale, key, params, options),
